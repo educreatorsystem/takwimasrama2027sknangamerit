@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ms">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#5b4ee8" />
+  <meta name="description" content="TAKWIM ASRAMA SK NANGA MERIT LIMBANG — program asrama, cuti Sarawak, ringkasan dan emolumen 2027." />
+  <title>TAKWIM ASRAMA SK NANGA MERIT LIMBANG</title>
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" type="image/png" href="https://iili.io/oKIHlr7.md.png" />
+  <link rel="apple-touch-icon" href="https://iili.io/oKIHlr7.md.png" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Takwim Asrama 2027" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=20271122-asrama-v1" />
+  <script src="app.js?v=20271122-asrama-v1" defer></script>
+</head>
+<body>
+  <div id="loadingOverlay" class="loading-overlay hidden"><div class="spinner"></div><div id="loadingText">Memuatkan...</div></div>
+  <div id="toast" class="toast hidden"></div>
+
+  <header class="site-header">
+    <div class="header-orb orb-1"></div><div class="header-orb orb-2"></div>
+    <div class="header-inner">
+      <div class="brand-block">
+        <img id="schoolLogo" class="school-logo" src="https://iili.io/oKIHlr7.md.png" alt="Lencana SEKOLAH KEBANGSAAN NANGA MERIT LIMBANG" />
+        <div class="brand-copy">
+          <div class="school-name">SEKOLAH KEBANGSAAN NANGA MERIT LIMBANG</div>
+          <h1>TAKWIM ASRAMA SK NANGA MERIT LIMBANG</h1>
+          <p>Pengurusan program, aktiviti, cuti dan takwim asrama 2027</p>
+        </div>
+      </div>
+      <div class="header-actions no-print">
+        <button id="summaryBtn" class="btn btn-warm">📋 Jana Ringkasan Bulanan</button>
+        <button id="addProgramBtn" class="btn btn-add hidden">＋ Tambah Program Asrama</button>
+        <button id="adminBtn" class="btn btn-light">🔐 Admin</button>
+        <span id="adminBadge" class="admin-badge hidden">✓ MOD ADMIN AKTIF</span>
+        <button id="printBtn" class="btn btn-light">🖨️ Cetak Bulan</button>
+        <button id="installBtn" class="btn btn-light hidden">📲 Pasang PWA</button>
+        <button id="logoutBtn" class="btn btn-danger hidden">Log Keluar</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="info-banner">
+      <span class="info-icon">🏠</span>
+      <div><strong>Takwim Pengurusan Asrama 2027</strong><p>Program asrama, cuti umum Sarawak, cuti persekolahan KPM, perayaan dan tarikh emolumen dalam satu paparan.</p></div>
+    </section>
+
+    <section class="toolbar no-print">
+      <button id="prevMonthBtn" class="nav-btn" aria-label="Bulan sebelumnya">←</button>
+      <label class="month-picker">PILIH BULAN<select id="monthSelect"></select></label>
+      <button id="nextMonthBtn" class="nav-btn" aria-label="Bulan berikutnya">→</button>
+      <span id="adminState" class="admin-state hidden">• MOD ADMIN AKTIF</span>
+    </section>
+
+    <section class="calendar-card">
+      <div class="calendar-head">
+        <div><div class="eyebrow">TAKWIM ASRAMA • 2027</div><h2 id="monthTitle">JANUARI 2027</h2></div>
+        <div class="stat-row">
+          <div class="stat-pill"><b id="programCount">0</b><small>Program</small></div>
+          <div class="stat-pill holiday"><b id="holidayCount">0</b><small>Cuti / Perayaan</small></div>
+          <div class="stat-pill off"><b id="holidayDayCount">0</b><small>Tarikh Cuti*</small></div>
+          <div class="stat-pill salary"><b id="salaryDate">—</b><small>Tarikh Emolumen</small></div>
+        </div>
+      </div>
+      <div id="legend" class="legend"></div>
+      <div class="weekdays"><span>AHAD</span><span>ISNIN</span><span>SELASA</span><span>RABU</span><span>KHAMIS</span><span>JUMAAT</span><span>SABTU</span></div>
+      <div id="calendarGrid" class="calendar-grid"></div>
+    </section>
+
+    <section class="summary-card">
+      <div class="summary-head"><div><div class="eyebrow">RINGKASAN BULANAN</div><h3 id="summaryMonthTitle">Ringkasan</h3></div><button id="summaryBtn2" class="btn btn-secondary no-print">📋 Jana Ringkasan</button></div>
+      <div id="holidaySummary" class="holiday-summary"></div>
+    </section>
+  </main>
+
+  <!-- LOGIN -->
+  <div id="loginModal" class="modal hidden"><div class="backdrop" data-close="login"></div><div class="modal-panel small"><button class="close" data-close="login">×</button><div class="modal-icon">🔐</div><h3>Log Masuk Admin</h3><p class="muted">Mod admin diperlukan untuk tambah, sunting atau padam program/cuti.</p><form id="loginForm"><label>Username<input id="adminIdInput" autocomplete="username" required /></label><label>Password<input id="adminPasswordInput" type="password" autocomplete="current-password" required /></label><button class="btn btn-primary full">Log Masuk</button></form></div></div>
+
+  <!-- EVENT -->
+  <div id="eventModal" class="modal hidden"><div class="backdrop" data-close="event"></div><div class="modal-panel"><button class="close" data-close="event">×</button><div class="modal-icon">🏠</div><h3 id="eventModalTitle">Tambah Program Asrama</h3><form id="eventForm"><input id="eventId" type="hidden"/><div class="form-grid"><label>Tarikh<input id="eventDate" type="date" min="2027-01-01" max="2027-12-31" required /></label><label>Kategori<select id="eventCategory" required></select></label><label class="span-2">Nama Program / Aktiviti<input id="eventTitle" maxlength="180" required /></label><label>Masa<input id="eventTime" placeholder="Contoh: 8.00 malam" /></label><label>Tempat<input id="eventPlace" placeholder="Contoh: Dewan Makan Asrama" /></label><label class="span-2">Catatan<textarea id="eventNotes" rows="3"></textarea></label></div><div class="form-actions"><button id="deleteEventBtn" type="button" class="btn btn-danger hidden">Padam</button><button type="button" class="btn btn-secondary" data-close="event">Batal</button><button id="saveEventBtn" class="btn btn-primary">Simpan Program</button></div></form></div></div>
+
+  <!-- HOLIDAY EDIT -->
+  <div id="holidayEditModal" class="modal hidden"><div class="backdrop" data-close="holidayEdit"></div><div class="modal-panel"><button class="close" data-close="holidayEdit">×</button><div class="modal-icon">🎉</div><h3 id="holidayEditTitle">Tambah Cuti</h3><form id="holidayEditForm"><input id="holidayEditId" type="hidden"/><div class="form-grid"><label>Tarikh Mula<input id="holidayStart" type="date" min="2027-01-01" max="2027-12-31" required /></label><label>Tarikh Akhir<input id="holidayEnd" type="date" min="2027-01-01" max="2027-12-31" required /></label><label class="span-2">Nama Cuti / Perayaan<input id="holidayTitle" required /></label><label>Jenis<select id="holidayType"><option>Cuti Umum</option><option>Cuti Negeri</option><option>Cuti Sekolah</option><option>Perayaan</option><option>Sambutan</option></select></label><label>Skop<input id="holidayScope" value="Sarawak" /></label><label>Ikon<input id="holidayIcon" value="🎉" /></label><label>Catatan<input id="holidayNotes" /></label></div><div class="form-actions"><button id="deleteHolidayBtn" type="button" class="btn btn-danger hidden">Padam</button><button type="button" class="btn btn-secondary" data-close="holidayEdit">Batal</button><button id="saveHolidayBtn" class="btn btn-primary">Simpan Cuti</button></div></form></div></div>
+
+  <!-- QUICK ADD -->
+  <div id="quickAddModal" class="modal hidden"><div class="backdrop" data-close="quickAdd"></div><div class="modal-panel small"><button class="close" data-close="quickAdd">×</button><div class="modal-icon">＋</div><h3>Tambah Pada Tarikh Ini</h3><p id="quickAddDateText" class="muted"></p><div class="quick-options"><button id="quickProgramBtn" class="choice program">🏠<b>Tambah Program Asrama</b><small>Aktiviti atau program pengurusan asrama.</small></button><button id="quickHolidayBtn" class="choice holiday">🎉<b>Tambah Cuti</b><small>Cuti tambahan atau perayaan.</small></button></div></div></div>
+
+  <!-- SUMMARY CHOICE -->
+  <div id="summaryChoiceModal" class="modal hidden"><div class="backdrop" data-close="summaryChoice"></div><div class="modal-panel small"><button class="close" data-close="summaryChoice">×</button><div class="modal-icon">📋</div><h3>Jana Ringkasan Bulanan</h3><p id="summaryChoiceMonth" class="muted"></p><div class="summary-options"><button data-summary-mode="holiday" class="choice holiday">🎉<b>Ringkasan Cuti</b></button><button data-summary-mode="program" class="choice program">🏠<b>Ringkasan Program</b></button><button data-summary-mode="combined" class="choice combined">🗂️<b>Ringkasan Keseluruhan</b></button></div></div></div>
+
+  <!-- SUMMARY RESULT -->
+  <div id="summaryResultModal" class="modal hidden"><div class="backdrop" data-close="summaryResult"></div><div class="modal-panel wide"><button class="close" data-close="summaryResult">×</button><div class="summary-result-head"><div><div class="modal-icon">📊</div><h3 id="summaryResultTitle">Ringkasan</h3><p id="summaryResultSubtitle" class="muted"></p></div><button id="printSummaryBtn" class="btn btn-primary no-print">🖨️ Cetak Ringkasan</button></div><div id="summaryResultStats" class="summary-stats"></div><div class="table-wrap"><table><thead id="summaryResultHead"></thead><tbody id="summaryResultBody"></tbody></table></div></div></div>
+</body>
+</html>

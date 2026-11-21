@@ -1,0 +1,27 @@
+{
+  "name": "TAKWIM ASRAMA SK NANGA MERIT LIMBANG",
+  "short_name": "Takwim Asrama",
+  "description": "TAKWIM ASRAMA SK NANGA MERIT LIMBANG — SEKOLAH KEBANGSAAN NANGA MERIT LIMBANG",
+  "lang": "ms-MY",
+  "id": "./index.html",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f5ff",
+  "theme_color": "#5b4ee8",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "https://iili.io/oKIHlr7.md.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://iili.io/oKIHlr7.md.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
